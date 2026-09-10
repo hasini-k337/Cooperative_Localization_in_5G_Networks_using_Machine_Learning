@@ -1,0 +1,139 @@
+✅ GPU is available
+GPU Name: Tesla T4
+Using device: cuda
+GPU: Tesla T4
+
+Merging training and validation datasets...
+Training samples: 19937
+Validation samples: 1111
+✅ Merged dataset saved: 21048 total samples
+
+Loading UJIIndoorLoc dataset...
+Original WAPs: 520
+Valid WAPs (removed all-100 columns): 520
+Coordinate ranges: [396.15234 272.     ]
+Final dataset shape: (21048, 520)
+
+✅ Input dimension: 520 (correctly filtered!)
+Number of samples: 21048
+Number of floor&building classes: 13
+Number of space ID classes: 124
+
+======================================================================
+TASK 1: COORDINATE REGRESSION
+======================================================================
+
+Original coord range: [0. 0.] to [396.15234 272.     ]
+Scaled coord range: [-1.8393993 -1.882474 ] to [1.3532684 2.148449 ]
+
+Training Optimized FasterKAN...
+Epoch 5/200 - Train Loss: 0.0064, Val Loss: 0.0063, LR: 0.001000
+Epoch 10/200 - Train Loss: 0.0053, Val Loss: 0.0059, LR: 0.001000
+Epoch 15/200 - Train Loss: 0.0053, Val Loss: 0.0063, LR: 0.001000
+  → Learning rate reduced: 0.001000 → 0.000500
+Epoch 20/200 - Train Loss: 0.0037, Val Loss: 0.0046, LR: 0.000500
+Epoch 25/200 - Train Loss: 0.0036, Val Loss: 0.0047, LR: 0.000500
+Epoch 30/200 - Train Loss: 0.0036, Val Loss: 0.0046, LR: 0.000500
+  → Learning rate reduced: 0.000500 → 0.000250
+Epoch 35/200 - Train Loss: 0.0035, Val Loss: 0.0046, LR: 0.000250
+Epoch 40/200 - Train Loss: 0.0031, Val Loss: 0.0044, LR: 0.000250
+  → Learning rate reduced: 0.000250 → 0.000125
+Epoch 45/200 - Train Loss: 0.0030, Val Loss: 0.0043, LR: 0.000125
+Epoch 50/200 - Train Loss: 0.0029, Val Loss: 0.0043, LR: 0.000125
+  → Learning rate reduced: 0.000125 → 0.000063
+Epoch 55/200 - Train Loss: 0.0029, Val Loss: 0.0043, LR: 0.000063
+Epoch 60/200 - Train Loss: 0.0029, Val Loss: 0.0043, LR: 0.000031
+  → Learning rate reduced: 0.000063 → 0.000031
+Epoch 65/200 - Train Loss: 0.0028, Val Loss: 0.0043, LR: 0.000031
+  → Learning rate reduced: 0.000031 → 0.000016
+Early stopping at epoch 69
+
+======================================================================
+✅ OPTIMIZED FasterKAN - Mean Position Error: 3.40 m
+   Median Error: 1.63 m
+   75th Percentile: 3.50 m
+   90th Percentile: 6.95 m
+======================================================================
+
+======================================================================
+TASK 2: FLOOR & BUILDING CLASSIFICATION
+======================================================================
+
+Training FasterKAN for Floor & Building...
+Epoch 5/100 - Train Acc: 0.9873, Val Acc: 0.9812, LR: 0.001000
+Epoch 10/100 - Train Acc: 0.9904, Val Acc: 0.9883, LR: 0.001000
+Epoch 15/100 - Train Acc: 0.9928, Val Acc: 0.9832, LR: 0.001000
+Epoch 20/100 - Train Acc: 0.9918, Val Acc: 0.9832, LR: 0.001000
+  → Learning rate reduced: 0.001000 → 0.000500
+Epoch 25/100 - Train Acc: 0.9952, Val Acc: 0.9916, LR: 0.000500
+Epoch 30/100 - Train Acc: 0.9965, Val Acc: 0.9905, LR: 0.000500
+Epoch 35/100 - Train Acc: 0.9967, Val Acc: 0.9921, LR: 0.000500
+  → Learning rate reduced: 0.000500 → 0.000250
+Epoch 40/100 - Train Acc: 0.9969, Val Acc: 0.9926, LR: 0.000250
+Epoch 45/100 - Train Acc: 0.9976, Val Acc: 0.9927, LR: 0.000250
+  → Learning rate reduced: 0.000250 → 0.000125
+Epoch 50/100 - Train Acc: 0.9974, Val Acc: 0.9924, LR: 0.000125
+Epoch 55/100 - Train Acc: 0.9977, Val Acc: 0.9930, LR: 0.000063
+  → Learning rate reduced: 0.000125 → 0.000063
+Early stopping at epoch 58
+
+======================================================================
+Floor & Building Classification Results:
+  Accuracy: 99.41%
+  Precision: 0.9942
+  Recall: 0.9941
+  F1-Score: 0.9941
+======================================================================
+
+======================================================================
+TASK 3: SPACE ID CLASSIFICATION
+======================================================================
+
+Training FasterKAN for Space ID...
+Epoch 5/100 - Train Acc: 0.3363, Val Acc: 0.3435, LR: 0.001000
+Epoch 10/100 - Train Acc: 0.5843, Val Acc: 0.5042, LR: 0.001000
+Epoch 15/100 - Train Acc: 0.7004, Val Acc: 0.5693, LR: 0.001000
+Epoch 20/100 - Train Acc: 0.7406, Val Acc: 0.6228, LR: 0.001000
+Epoch 25/100 - Train Acc: 0.7641, Val Acc: 0.6006, LR: 0.001000
+  → Learning rate reduced: 0.001000 → 0.000500
+Epoch 30/100 - Train Acc: 0.8840, Val Acc: 0.6860, LR: 0.000500
+Epoch 35/100 - Train Acc: 0.8975, Val Acc: 0.6825, LR: 0.000500
+  → Learning rate reduced: 0.000500 → 0.000250
+Epoch 40/100 - Train Acc: 0.9371, Val Acc: 0.7124, LR: 0.000250
+Epoch 45/100 - Train Acc: 0.9490, Val Acc: 0.7151, LR: 0.000125
+  → Learning rate reduced: 0.000250 → 0.000125
+Epoch 50/100 - Train Acc: 0.9642, Val Acc: 0.7267, LR: 0.000125
+Epoch 55/100 - Train Acc: 0.9653, Val Acc: 0.7205, LR: 0.000125
+Epoch 60/100 - Train Acc: 0.9654, Val Acc: 0.7267, LR: 0.000125
+  → Learning rate reduced: 0.000125 → 0.000063
+Epoch 65/100 - Train Acc: 0.9687, Val Acc: 0.7265, LR: 0.000063
+  → Learning rate reduced: 0.000063 → 0.000031
+Epoch 70/100 - Train Acc: 0.9689, Val Acc: 0.7292, LR: 0.000031
+Early stopping at epoch 72
+
+======================================================================
+Space ID Classification Results:
+  Accuracy: 72.98%
+  Precision: 0.7400
+  Recall: 0.7298
+  F1-Score: 0.7305
+======================================================================
+
+
+======================================================================
+FINAL RESULTS SUMMARY
+======================================================================
+
+Coordinate Regression:
+  Mean Position Error: 3.40 m
+
+Floor & Building Classification: 99.41%
+Space ID Classification: 72.98%
+
+======================================================================
+COMPARISON WITH PAPER
+======================================================================
+Floor & Building: 99.00% (Paper) vs 99.41% (Ours) [+0.41%]
+Space ID:         71.00% (Paper) vs 72.98% (Ours) [+1.98%]
+Position Error:   3.56m  (Paper) vs 3.40m (Ours) [+0.16m]
+======================================================================
